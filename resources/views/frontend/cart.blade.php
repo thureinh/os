@@ -20,7 +20,25 @@
 	        </tr>
 	      </thead>
 	      <tbody id="tbody-cart">
-	        
+                  <tr>
+                    <td colspan='4' rowspan='2'>
+                      <textarea class='form-control' id='note' placeholder='Add Notes...' rows='3'></textarea>
+                    </td>
+                    <td colspan='2'>
+                      <button class='btn btn-light btn-block btn-clearall'>Clear All</button>
+                    </td>
+                  </tr>
+                  <tr>
+                  	@auth
+	                    <td colspan='2'>
+	                      <a class="btn btn-dark btn-block btn-checkout" href="#">Check Out</a>
+	                    </td>
+					@else
+						<td colspan='2'>
+	                      <a class="btn btn-success btn-block" href="{{ route('login') }}">Login</a>
+	                    </td>
+					@endauth
+                  </tr>
 	      </tbody>
 	    </table>
 	  </div>

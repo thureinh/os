@@ -11,15 +11,15 @@ class BackendController extends Controller
   	return view('backend.dashboard');
   }
 
-  public function orders()
-  {
-  	$orders = Order::orderBy('orderdate')->get();
-  	return view('backend.orders.index', compact('orders'));
-  }
+  // public function orders()
+  // {
+  // 	$orders = Order::orderBy('orderdate')->get();
+  // 	return view('backend.orders.index', compact('orders'));
+  // }
 
-  public function orderdetail($id)
-  {
-  	$order = Order::find($id);
-  	return view('backend.orders.detail', compact('order'));
-  }
+  // public function orderdetail($id)
+  // {
+  // 	$order = Order::find($id);
+  // 	return view('backend.orders.detail', compact('order'));
+  // }
 }

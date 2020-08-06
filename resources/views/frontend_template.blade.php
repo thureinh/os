@@ -27,14 +27,14 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="{{ route('home') }}"><i class="fas fa-shopping-bag " style="-webkit-transform: rotate(-15deg);"></i> <span class="font-weight-bold pl-1">Online Shop</span></a>
+      <a class="navbar-brand" href="{{ route('frontend_home') }}"><i class="fas fa-shopping-bag " style="-webkit-transform: rotate(-15deg);"></i> <span class="font-weight-bold pl-1">Online Shop</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active pr-2">
-            <a class="nav-link" href="{{ route('home') }}">Home
+            <a class="nav-link" href="{{ route('frontend_home') }}">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -68,9 +68,11 @@
             </ul>
           </li>
 
+          @unless(Auth::check())
           <li class="nav-item pr-2">
-            <a class="nav-link" href="#">Log in | Register</a>
+            <a class="nav-link" href="{{ route('login') }}">Log in | Register</a>
           </li>
+          @endunless
           <li class="nav-item">
             <a class="nav-link" href="{{ route('cart') }}">
               <i class="fas fa-shopping-cart"></i>

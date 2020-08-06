@@ -7,9 +7,14 @@ use App\Brand;
 use App\Category;
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
+
+  public function __construct(){
+    $this->middleware('auth')->only('checkout');
+  }
 
   public function home() {
 
@@ -54,13 +59,13 @@ class FrontendController extends Controller
     $order->total = $total;
     $order->note = $request->note;
     $order->status = 0;
-    $order->user_id = 1;
+    $order->user_id = Auth::id();
 
     $order->save();
-
     // for item_order
     foreach ($list as $row) {
       $order->items()->attach($row->id, ['qty' => $row->quantity]);
     }
   }
+
 }

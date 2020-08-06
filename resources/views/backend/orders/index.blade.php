@@ -51,7 +51,7 @@
 	          				@endif
 	          			</td>
 	          			<td>
-	          				<a href="{{ route('orderdetail', $order->id) }}" class="btn btn-outline-info btn-sm btn-detail"><i class="fas fa-info-circle"></i> Detail</a>
+	          				<a href="{{ route('orders.show', $order->id) }}" class="btn btn-outline-info btn-sm btn-detail"><i class="fas fa-info-circle"></i> Detail</a>
 	          			</td>
 	          		</tr>
 	          		@php $i++; @endphp

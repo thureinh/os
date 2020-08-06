@@ -138,22 +138,9 @@
                     <td colspan='4' class='text-right font-weight-bold'>Total Price:</td>
                     <td colspan='2' class='text-right text-price'>Ks.${total.toLocaleString()}</td>
                   <tr>
-                  <tr>
-                    <td colspan='4' rowspan='2'>
-                      <textarea class='form-control' id='note' placeholder='Add Notes...' rows='3'></textarea>
-                    </td>
-                    <td colspan='2'>
-                      <button class='btn btn-light btn-block btn-clearall'>Clear All</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan='2'>
-                      <a class="btn btn-dark btn-block btn-checkout" href="#">Check Out</a>
-                    </td>
-                  </tr>
                     `;
 
-            $('#tbody-cart').html(html);
+            $('#tbody-cart').before(html);
 
           } else {
             $(".div-cart").html(emptyhtml);
@@ -247,8 +234,8 @@
 
 
     // checkout 
-    $('.btn-checkout').click(function() {
-      // alert('hello');
+    $('#tbody-cart').on('click', '.btn-checkout', function() {
+
       var localSto = localStorage.getItem('cart');
       var notes = $('#note').val();
 

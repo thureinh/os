@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'FrontendController@home')->name('home');
+Route::get('/', 'FrontendController@home')->name('frontend_home');
 
 Route::get('itemdetail/{item}', 'FrontendController@itemdetail')->name('itemdetail');
 
@@ -22,20 +22,23 @@ Route::get('cart', 'FrontendController@cart')->name('cart');
 // for check out 
 Route::post('checkout', 'FrontendController@checkout')->name('checkout');
 
-Route::get('dashboard', 'BackendController@dashboard')->name('dashboard');
+//ADMIN
+Route::middleware('auth')->group(function () {
 
-Route::resource('items', 'ItemController');
+	Route::get('dashboard', 'BackendController@dashboard')->name('dashboard');
 
-Route::resource('brands', 'BrandController');
+	Route::resource('items', 'ItemController');
 
-Route::resource('categories', 'CategoryController');
+	Route::resource('brands', 'BrandController');
 
-Route::resource('subcategories', 'SubcategoryController');
+	Route::resource('categories', 'CategoryController');
 
-// order 
-Route::get('orders', 'BackendController@orders')->name('orders');
+	Route::resource('subcategories', 'SubcategoryController');
 
-Route::get('orderdetail/{id}', 'BackendController@orderdetail')->name('orderdetail');
+	Route::resource('orders', 'OrderController'); 
+
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

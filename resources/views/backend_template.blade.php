@@ -131,8 +131,8 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item {{request()->routeIs('orders') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('orders') }}">
+      <li class="nav-item {{request()->routeIs('orders*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('orders.index') }}">
           <i class="fas fa-shopping-cart fa-fw"></i>
           <span>Orders</span></a>
       </li>
