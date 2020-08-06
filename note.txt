@@ -1,0 +1,10 @@
+Homework
+--------
+- CRUD (sweet alert => https://sweetalert.js.org/)		[finished]
+	- custom input validation errors										[finished]
+	- image upload in update progress										[finished]
+	- delete images form storage if changes							[finished]
+
+- CRUD of Brand, Category, Subcategory
+
+- upload into github repo
